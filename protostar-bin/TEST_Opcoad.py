@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 
-from Opcoad import convertOpcode
+from Opcoad import convert_opcode
 import unittest
 
 
@@ -17,7 +17,7 @@ class NormalTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -37,7 +37,7 @@ class NormalTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -57,7 +57,7 @@ class NormalTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -81,7 +81,7 @@ class ErrorTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.assertEqual(err.message, "Expected string: opcode")
         except ValueError as err:
@@ -101,7 +101,7 @@ class ErrorTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:            
@@ -121,7 +121,7 @@ class ErrorTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.assertEqual(err.message, "Expected string: filler")
         except ValueError as err:
@@ -141,7 +141,7 @@ class ErrorTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:            
@@ -161,7 +161,7 @@ class ErrorTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:            
@@ -185,7 +185,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -205,7 +205,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -225,7 +225,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -245,7 +245,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -265,7 +265,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -285,7 +285,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -305,7 +305,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -325,7 +325,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -345,7 +345,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -365,7 +365,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -385,7 +385,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -405,7 +405,7 @@ class BoundaryTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:
@@ -433,7 +433,7 @@ class SpecialTests(unittest.TestCase):
 
         # FUNCTION CALL
         try:
-            actOutput = convertOpcode(testInput, fillerInput)
+            actOutput = convert_opcode(testInput, fillerInput)
         except TypeError as err:
             self.fail("Raised exception:\t{}".format(repr(err)))
         except ValueError as err:

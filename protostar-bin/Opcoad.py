@@ -1,4 +1,4 @@
-def convertOpcode(opcode, filler):
+def convert_opcode(opcode, filler):
     '''
         PURPOSE - Convert a string of opcode numbers to little endian values
         INPUT
