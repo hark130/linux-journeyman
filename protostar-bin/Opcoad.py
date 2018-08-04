@@ -1,4 +1,7 @@
 def convert_opcode(opcode, filler):
+    return convert_opcode_string(opcode, filler)
+
+def convert_opcode_string(opcode, filler):
     '''
         PURPOSE - Convert a string of opcode numbers to little endian values
         INPUT
@@ -51,6 +54,51 @@ def convert_opcode(opcode, filler):
     # DONE
     return retVal
 
+
+def convert_opcode_bytes(opcode, filler):
+    '''
+        PURPOSE - Convert a string of opcode bytes to little endian order
+        INPUT
+            opcode - String of opcode byte values (e.g., copied from \\xNN object code)
+            filler - Value to 'round out' the byte alignment
+        OUTPUT - String of escaped opcode values byte-ordered for little endian
+    '''
+    # LOCAL VARIABLES
+    retVal = ""  # String of escaped opcode values byte-ordered for little endian
+    inStr = opcode  # 'Working' copy of opcode, in case the alignment needs to be rounded out
+    wrdIndexStart = 0  # Index of the beginning of the current word
+    wrdIndexStop = 0  # Index of the end of the current word
+    tmpStr = ""  # Return value from reverse_endianness
+
+    # INPUT VALIDATION
+    if not isinstance(opcode, str):
+        raise TypeError("Expected string: opcode")
+    elif not isinstance(filler, str):
+        raise TypeError("Expected string: filler")
+    elif 0 == opcode.__len__():
+        raise ValueError("Empty string: opcode")
+    elif 0 == filler.__len__():
+        raise ValueError("Empty string: filler")
+    elif 2 < filler.__len__():
+        raise ValueError("Too long: filler")
+    elif 0 != (inStr.__len__() % 2):
+        raise ValueError("Odd length: opcode")
+    elif 0 != (inStr.__len__() % (2 * 4)):
+        inStr = inStr + (filler * ((8 - (inStr.__len__() % (2 * 4))) / 2))
+
+    # REVERSE IT
+    while (wrdIndexStop < inStr.__len__()):
+        # Setup indices
+        wrdIndexStart = wrdIndexStop
+        wrdIndexStop += 8
+        # Reverse
+        tmpStr = reverse_endianness(inStr[wrdIndexStart:wrdIndexStop])
+
+        retVal = retVal + tmpStr
+
+    # DONE
+    return retVal
+    
 
 def reverse_endianness(hexWord):
     '''
