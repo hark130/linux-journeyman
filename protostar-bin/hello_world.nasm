@@ -7,15 +7,18 @@ global _start
 section .text
 
 _start:
-  mov rax, 1        ; write(
-  mov rdi, 1        ;   STDOUT_FILENO,
+  mov rax, 0x4      ; write(
+  mov rdi, 0x1      ;   STDOUT_FILENO,
   mov rsi, msg      ;   "Hello, world!\n",
   mov rdx, msglen   ;   sizeof("Hello, world!")
-  syscall           ; );
+  ; syscall           ; );
+  int 80h           ; );
 
-  mov rax, 60       ; exit(
-  mov rdi, 0        ;   EXIT_SUCCESS
-  syscall           ; );
+  xor eax, eax
+  mov rax, 0x1      ; exit(
+  mov rdi, 0x0      ;   EXIT_SUCCESS
+  ; syscall           ; );
+  int 80h           ; );
 
 section .rodata
   msg: db "Hello, world!"
